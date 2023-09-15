@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,15 +13,16 @@ namespace Methods_4._5___Assignment
     {
         static void Main(string[] args)
         {   // Raihan Carder, Sep 13 2023
-            int selection;
+            int selection = 0;
             int xParameter, yParameter;
-            bool ascii = true, parameterValue = false;
+            bool ascii = true, parameterValue = false, validSelection = false;
 
             while (ascii == true) {
                 xParameter = 0;
                 yParameter = 0;
 
-                
+
+
                 Console.Title = "ASCII Art + Joke";
                 Console.SetWindowSize(120,60);
 
@@ -28,9 +30,21 @@ namespace Methods_4._5___Assignment
                 Console.WriteLine();
                 Console.WriteLine("Which ASCII art or Joke would you like to see?");
                 Console.WriteLine("Your options include: 1. Sonic, 2. Monkey, or 3. Garfield.");
-                Console.WriteLine("If you'd like a joke, type 4 for a JOKE");
-                Console.Write("What would you like to see? (type the according number) ");
-                selection = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("If you'd like a joke, type 4 for a JOKE, to quit: type 5.");
+                Console.Write("What would you like to see? (type the according number): ");
+                while (validSelection == false)
+                {
+                    if (int.TryParse(Console.ReadLine(), out selection) && selection > 0 && selection < 6)
+                    {
+                        validSelection = true;
+                    }
+                    else
+                    {
+                        Console.Write("Please re-enter a valid value in the range of 1-5:");
+                    }
+                }
+                validSelection = false;
+                Console.WriteLine() ;
                 if (selection > 0 && selection < 4)
                 {
                     Console.Write("Where would you like the image to be with the X parameter? (Must be within 1-80):");
