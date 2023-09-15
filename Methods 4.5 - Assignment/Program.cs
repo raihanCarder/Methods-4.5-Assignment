@@ -77,10 +77,12 @@ namespace Methods_4._5___Assignment
                 }
                 else if ( selection == 4)
                 {
+                    Console.Clear();
                     Joke();
                 }
                 else
                 {
+                    Console.WriteLine("Click enter one more time to quit.");
                     ascii = false;
                 }
             }
@@ -235,8 +237,20 @@ namespace Methods_4._5___Assignment
 
         public static void Joke()
         {
-
-
+            Console.WriteLine("Click enter to interact with the joke!");
+            Console.WriteLine("Joker: Knock Knock");
+            Console.ReadLine();
+            Console.WriteLine("You: Who's There?");
+            Console.WriteLine("Joker: Brighton.");
+            Console.ReadLine();
+            Console.WriteLine("You: Brighton Who?");
+            Console.WriteLine("Joker: Brighton early, that's when I wake up.");
+            Console.ReadLine();
+            Console.WriteLine("You: Hahahahha");
+            Console.WriteLine();
+            Console.WriteLine("Click enter to return to menu.");
+            Console.ReadLine();
+            Console.Clear();
         }
 
     }
